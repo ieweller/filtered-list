@@ -5,9 +5,18 @@ $color-secondary: hsl(180, 14%, 20%);
 $color-primary--light: hsl(180, 31%, 95%);
 $color-neutral: hsl(180, 52%, 96%);
 
+.hidden {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $color-neutral;
   font-family: 'Spartan', sans-serif;
+  margin: 0;
 }
 
 header {
@@ -25,9 +34,28 @@ header {
   }
 }
 
-.h-tag {}
+.h-tag {
+  padding: 0.8rem 1rem;
+  background-color: $color-primary--light;
+}
+
+main {
+  margin: 10rem 0;
+  padding: 4rem 1rem 1rem 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.l-table {
+  margin: 0 auto;
+  width: calc(100vw - 2rem);
+  max-width: 65rem;
+}
 
 .l-item {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 
   ul {
     list-style: none;
@@ -36,22 +64,56 @@ header {
       display: inline;
     }
   }
-  &__logo {}
+
+  &__logo {
+    grid-area: logo;
+    height: 5rem;
+    width: 5rem;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__row {
+    .row1 {
+      grid-area: company;
+    }
+    .row2 {
+      grid-area: position;
+    }
+    .row3 {
+      grid-area: details;
+    }
+  }
+
   &__detail {
+    display: grid;
+    grid-template-columns: 5rem auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "logo company"
+      "logo position"
+      "logo details";
+    width: 35%;
+
     &>ul {}
   }
   &__tags {
+    display: flex;
+    width: 45%;
+
     >ul {
-      >li {
-        padding: 0.8rem 1rem;
-        background-color: $color-primary--light;
-      }
+      >li {}
     }
   }
 
 }
 
 .c-card {
+  background-color: white;
+  border-radius: 0.5rem;
+
   &__company {}
   &__new {}
   &__featured {}
