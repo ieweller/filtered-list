@@ -1,13 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
 
+$color-primary: hsl(178, 29%, 50%);
+$color-secondary: hsl(180, 14%, 20%);
+$color-primary--light: hsl(180, 31%, 95%);
+$color-neutral: hsl(180, 52%, 96%);
 
 body {
+  background-color: $color-neutral;
   font-family: 'Spartan', sans-serif;
 }
 
-.h-tag {
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
 
+
+  .c-header {
+    height: 10rem;
+    background: url(../images/bg-header-desktop.svg), $color-primary;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
+
+.h-tag {}
 
 .l-item {
 
@@ -23,7 +41,12 @@ body {
     &>ul {}
   }
   &__tags {
-    &>ul {}
+    >ul {
+      >li {
+        padding: 0.8rem 1rem;
+        background-color: $color-primary--light;
+      }
+    }
   }
 
 }

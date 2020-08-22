@@ -1,8 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
 body {
+  background-color: #effafa;
   font-family: 'Spartan', sans-serif; }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; }
+  header .c-header {
+    height: 10rem;
+    background: url(../images/bg-header-desktop.svg), #5ba4a2;
+    background-repeat: no-repeat;
+    background-size: cover; }
 
 .l-item ul {
   list-style: none; }
   .l-item ul li, .l-item ul li > p {
     display: inline; }
+
+.l-item__tags > ul > li {
+  padding: 0.8rem 1rem;
+  background-color: #eef6f6; }
