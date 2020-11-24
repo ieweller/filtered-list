@@ -19,6 +19,7 @@ $device-sm: 'max-width: 768px';
 
 html {
   font-size: 16px;
+  visibility: hidden;
 }
 
 body {
@@ -51,8 +52,14 @@ main {
 }
 
 .list-filters {
-  display: none;
 
+  background-color: white;
+  box-shadow: 1rem 1rem 3rem rgba($color-primary, 0.35);
+
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   margin-bottom: 2.65rem;
   width: 100%;
 
@@ -62,15 +69,12 @@ main {
 
   ul {
 
-    background-color: white;
     list-style: none;
-    box-shadow: 1rem 1rem 3rem rgba($color-primary, 0.35);
-
-    border-radius: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding: 1rem 2rem;
+    padding: 0;
+    margin: 0;
 
     li {
       display: flex;
@@ -104,6 +108,20 @@ main {
         }
       }
     }
+  }
+}
+
+.clear-filters {
+  color: $color-primary;
+  font-size: 1rem;
+  text-decoration: underline;
+
+  display: absolute;
+  right: 0;
+  align-self: center;
+
+  &:hover {
+    cursor: pointer;
   }
 }
 

@@ -1,3 +1,9 @@
+$(document).ready(function() {
+  $(".list-filters").toggle();
+
+  document.getElementsByTagName("html")[0].style.visibility = "visible";
+});
+
 $(function() {
   $.ajax({
     type : 'GET',
@@ -54,66 +60,89 @@ function createList(filteredList) {
     }
     buffer+= '<\/ul><\/div><\/div><\/div>';
   });
-  // Adds table generated from JSON objects to DOM
+  // Add table generated from JSON objects to DOM
   $('.l-table').html(buffer);
 }
 
+
+// create list of filters to apply
 var filters = [];
 
+// when user clicks tag within list item...
 $( '.l-table' ).on( 'click', '.c-tag', function () {
 
-  // if no filters are in use, show filter bar
+  // if no filters are in use, show filter bar and hide all list items
   if ($('.list-filters').is(':hidden')) {
     $(".list-filters").toggle();
-    $(".list-filters").html("<ul></ul>")
     $(".spacer-filters").toggle();
     $(".l-item").addClass('hide');
   }
 
-  // add filter to list of filters
+  // set filter to tag clicked by user
   var filter = $(this).children('p').text()
 
+  // check if filter is already applied
   if (filters.indexOf(filter.toLowerCase()) !== -1) {
     return false;
   } else {
+
+    // add filter to array of filters
     filters.push( filter.toLowerCase() );
 
+    // reveal each list item which matches an active filter
     $.each(filters, function(i, filteredItem) {
       $('.' + filteredItem).removeClass('hide');
     });
 
-    // add filter tag to filter-list
+    // print filter to filter-list
     var buffer = '';
-
     buffer+='<li><span class="filter-label">';
     buffer+= filter;
     buffer+='</span><div class="close"></div></li>';
-
     $('.list-filters').children('ul').append(buffer);
   }
 
 });
 
+// when user clicks tag close button...
 $( '.list-filters' ).on( 'click', '.close', function () {
 
+  // captures value of tag to be closed
   var removeItem = $(this).siblings('.filter-label').text().toLowerCase();
 
-  $(this).parent().toggle();
+  // destroy the tag the user closed
+  $(this).parent().remove();
 
+  // remove filter value from array of filters
   filters.splice( $.inArray(removeItem, filters), 1 );
 
-  // alert(filters);
-
+  // hide all list items
   $(".l-item").addClass('hide');
 
+  // reveal each list item which matches an active filter
   $.each(filters, function(i, filteredItem) {
     $('.' + filteredItem).removeClass('hide');
   });
 
+  // if last active filter has been closed...
   if($('.list-filters > ul').children(':visible').length == 0) {
+    // hide filter bar area, reveal spacer
     $('.list-filters').toggle();
-    $('.list-filters').html('');
     $('.spacer-filters').toggle();
+    // reveal all list items
     $(".l-item").removeClass('hide');
   }
+});
+
+// when user clicks clear tags button...
+$( '.list-filters' ).on( 'click', '.clear-filters', function () {
+  // reset filter array
+  filters = [];
+  // hide filter bar area, reveal spacer
+  $('.list-filters').toggle();
+  $('.spacer-filters').toggle();
+  //reveal all list items
+  $(".l-item").removeClass('hide');
+  // clear filters from filter list
+  $( ".filter-label" ).parent().remove();
 });
