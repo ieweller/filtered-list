@@ -41,6 +41,7 @@ main {
   .list-filters ul {
     background-color: white;
     list-style: none;
+    box-shadow: 1rem 1rem 3rem rgba(91, 164, 162, 0.35);
     border-radius: 0.5rem;
     display: flex;
     flex-wrap: wrap;
