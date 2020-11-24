@@ -76,13 +76,14 @@ main {
           cursor: pointer; }
 
 .clear-filters {
-  color: #5ba4a2;
-  font-size: 1rem;
-  text-decoration: underline;
+  color: #868887;
+  font-size: 0.8rem;
   display: absolute;
   right: 0;
   align-self: center; }
   .clear-filters:hover {
+    color: #5ba4a2;
+    text-decoration: underline;
     cursor: pointer; }
 
 .spacer-filters {
@@ -223,7 +224,8 @@ main {
     background-color: #eef6f6;
     font-size: 0.8em;
     font-weight: 700;
-    margin: 0.5rem; }
+    margin: 0.5rem;
+    transition: all 200ms ease-in-out; }
     .c-card .c-tag:hover {
       cursor: pointer;
       color: #eef6f6;

@@ -112,15 +112,17 @@ main {
 }
 
 .clear-filters {
-  color: $color-primary;
-  font-size: 1rem;
-  text-decoration: underline;
+  color: $color-neutral--light;
+  font-size: 0.8rem;
 
   display: absolute;
   right: 0;
   align-self: center;
 
   &:hover {
+    color: $color-primary;
+    text-decoration: underline;
+
     cursor: pointer;
   }
 }
@@ -325,6 +327,8 @@ main {
     font-size: 0.8em;
     font-weight: 700;
     margin: 0.5rem;
+
+    transition: all 200ms ease-in-out;
 
     &:hover {
       cursor: pointer;
