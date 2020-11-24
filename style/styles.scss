@@ -17,6 +17,10 @@ $device-sm: 'max-width: 768px';
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: $color-neutral;
   font-family: 'Spartan', sans-serif;
@@ -39,10 +43,72 @@ header {
 }
 
 main {
-  margin: 10rem 0;
+  margin: 3rem auto;
   padding: 4rem 1rem 1rem 1rem;
   position: relative;
+  width: calc(100vw - 2rem);
+  max-width: 65rem;
+}
+
+.list-filters {
+  display: none;
+
+  margin-bottom: 2.65rem;
   width: 100%;
+
+  @media ($device-sm) {
+    margin-bottom: 2.5rem;
+  }
+
+  ul {
+
+    background-color: white;
+    list-style: none;
+
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
+
+    li {
+      display: flex;
+      margin: 0 0.5rem;
+
+      .filter-label {
+        border-radius: 0.25rem 0 0 0.25rem;
+        padding: 0.4rem 0.6rem;
+        color: $color-primary;
+        background-color: $color-primary--light;
+        font-size: 0.8em;
+        font-weight: 700;
+      }
+
+      .close {
+        border-radius: 0 0.25rem 0.25rem 0;
+
+        background-color: $color-primary;
+        background-image: url(../images/icon-close.svg);
+        background-size: 0.75rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100%;
+        width: 2rem;
+
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: $color-neutral--dark;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.spacer-filters {
+  display: none;
+
+  margin-bottom: 7.5rem;
 }
 
 .l-table {
@@ -51,8 +117,7 @@ main {
   grid-row-gap: 1.8rem;
   row-gap: 1.8rem;
   margin: 0 auto;
-  width: calc(100vw - 2rem);
-  max-width: 65rem;
+  width: 100%;
 
   @media ($device-sm) {
     grid-row-gap: 2.8rem;
@@ -239,7 +304,7 @@ main {
     background-color: $color-primary--light;
     font-size: 0.8em;
     font-weight: 700;
-    margin: 0.5rem auto;
+    margin: 0.5rem;
 
     &:hover {
       cursor: pointer;
@@ -252,4 +317,12 @@ main {
     border-left: 0.5rem solid $color-primary;
     padding-left: 1.5rem;
   }
+}
+
+.show {
+  display: inherit;
+}
+
+.hide {
+  display: none;
 }

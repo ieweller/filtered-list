@@ -5,6 +5,9 @@
 * {
   box-sizing: border-box; }
 
+html {
+  font-size: 16px; }
+
 body {
   background-color: #effafa;
   font-family: 'Spartan', sans-serif;
@@ -22,10 +25,53 @@ header {
     background-size: cover; }
 
 main {
-  margin: 10rem 0;
+  margin: 3rem auto;
   padding: 4rem 1rem 1rem 1rem;
   position: relative;
+  width: calc(100vw - 2rem);
+  max-width: 65rem; }
+
+.list-filters {
+  display: none;
+  margin-bottom: 2.65rem;
   width: 100%; }
+  @media (max-width: 768px) {
+    .list-filters {
+      margin-bottom: 2.5rem; } }
+  .list-filters ul {
+    background-color: white;
+    list-style: none;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 2rem; }
+    .list-filters ul li {
+      display: flex;
+      margin: 0 0.5rem; }
+      .list-filters ul li .filter-label {
+        border-radius: 0.25rem 0 0 0.25rem;
+        padding: 0.4rem 0.6rem;
+        color: #5ba4a2;
+        background-color: #eef6f6;
+        font-size: 0.8em;
+        font-weight: 700; }
+      .list-filters ul li .close {
+        border-radius: 0 0.25rem 0.25rem 0;
+        background-color: #5ba4a2;
+        background-image: url(../images/icon-close.svg);
+        background-size: 0.75rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100%;
+        width: 2rem;
+        transition: all 0.2s ease-in-out; }
+        .list-filters ul li .close:hover {
+          background-color: #2c3a39;
+          cursor: pointer; }
+
+.spacer-filters {
+  display: none;
+  margin-bottom: 7.5rem; }
 
 .l-table {
   display: flex;
@@ -33,8 +79,7 @@ main {
   grid-row-gap: 1.8rem;
   row-gap: 1.8rem;
   margin: 0 auto;
-  width: calc(100vw - 2rem);
-  max-width: 65rem; }
+  width: 100%; }
   @media (max-width: 768px) {
     .l-table {
       grid-row-gap: 2.8rem;
@@ -162,7 +207,7 @@ main {
     background-color: #eef6f6;
     font-size: 0.8em;
     font-weight: 700;
-    margin: 0.5rem auto; }
+    margin: 0.5rem; }
     .c-card .c-tag:hover {
       cursor: pointer;
       color: #eef6f6;
@@ -170,3 +215,9 @@ main {
   .c-card.featured {
     border-left: 0.5rem solid #5ba4a2;
     padding-left: 1.5rem; }
+
+.show {
+  display: inherit; }
+
+.hide {
+  display: none; }
