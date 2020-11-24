@@ -73,20 +73,24 @@ $( '.l-table' ).on( 'click', '.c-tag', function () {
   // add filter to list of filters
   var filter = $(this).children('p').text()
 
-  filters.push( filter.toLowerCase() );
+  if (filters.indexOf(filter.toLowerCase()) !== -1) {
+    return false;
+  } else {
+    filters.push( filter.toLowerCase() );
 
-  $.each(filters, function(i, filteredItem) {
-    $('.' + filteredItem).removeClass('hide');
-  });
+    $.each(filters, function(i, filteredItem) {
+      $('.' + filteredItem).removeClass('hide');
+    });
 
-  // add filter tag to filter-list
-  var buffer = '';
+    // add filter tag to filter-list
+    var buffer = '';
 
-  buffer+='<li><span class="filter-label">';
-  buffer+= filter;
-  buffer+='</span><div class="close"></div></li>';
+    buffer+='<li><span class="filter-label">';
+    buffer+= filter;
+    buffer+='</span><div class="close"></div></li>';
 
-  $('.list-filters').children('ul').append(buffer);
+    $('.list-filters').children('ul').append(buffer);
+  }
 
 });
 
@@ -101,7 +105,7 @@ $( '.list-filters' ).on( 'click', '.close', function () {
   // alert(filters);
 
   $(".l-item").addClass('hide');
-  
+
   $.each(filters, function(i, filteredItem) {
     $('.' + filteredItem).removeClass('hide');
   });
