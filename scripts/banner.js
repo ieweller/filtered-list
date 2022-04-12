@@ -1,4 +1,4 @@
-const ctaLink = "#";
+const ctaLink = "https://www.frontendmentor.io/solutions/job-listings-generated-from-json-file-M1hbUL2_t";
 ctabanner(ctaLink);
 
 function ctabanner(hyperlink) {
