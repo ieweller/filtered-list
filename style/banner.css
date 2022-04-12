@@ -17,6 +17,7 @@
   top: 0;
   transition: all 0.3s ease-out;
   width: 100%;
+  z-index: 98;
 }
 .banner .close-btn {
   height: 100%;
@@ -30,7 +31,7 @@
   top: -6rem;
 }
 .banner:after {
-  content: "";
+  content: "\f00d";
   display: inline-block;
   font-family: "Font Awesome 5 Free";
   font-size: 1.2rem;
@@ -48,7 +49,7 @@
   color: #3867d6;
 }
 .banner-text a:after {
-  content: "";
+  content: "\f35d";
   display: inline-block;
   font-family: "Font Awesome 5 Free";
   font-size: 0.6rem;
