@@ -12,7 +12,7 @@
   margin: 0;
   min-width: 16rem;
   padding: 1rem 2.5rem;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   transition: all 0.3s ease-out;
